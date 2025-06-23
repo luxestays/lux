@@ -1,0 +1,154 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Monochromatic Light Theme */
+    --background: 0 0% 100%; /* White */
+    --background-rgb: 255, 255, 255;
+    --foreground: 0 0% 13%; /* Dark Grey/Almost Black */
+    --foreground-rgb: 33, 33, 33;
+
+    --card: 0 0% 98%; /* Very Light Grey */
+    --card-foreground: 0 0% 13%;
+
+    --popover: 0 0% 100%; /* White */
+    --popover-foreground: 0 0% 13%;
+
+    --primary: 0 0% 90%; /* Light Grey */
+    --primary-foreground: 0 0% 13%;
+
+    --secondary: 0 0% 96%; /* Lighter Grey */
+    --secondary-foreground: 0 0% 13%;
+
+    --muted: 0 0% 92%; /* Medium Light Grey */
+    --muted-foreground: 0 0% 40%; /* Medium Grey */
+
+    --accent: 0 0% 20%; /* Dark Grey as Accent */
+    --accent-rgb: 51, 51, 51;
+    --accent-foreground: 0 0% 98%; /* Light Grey/White for Accent Text */
+
+    --destructive: 0 84.2% 60.2%; /* Keeping a standard red for errors */
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 85%; /* Light Grey Border */
+    --input: 0 0% 90%; /* Light Grey Input Background */
+    --ring: 0 0% 40%; /* Medium Grey for Focus Ring */
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    /* Monochromatic Dark Theme */
+    --background: 0 0% 10%; /* Very Dark Grey/Almost Black */
+    --background-rgb: 25, 25, 25;
+    --foreground: 0 0% 95%; /* Light Grey/Almost White */
+    --foreground-rgb: 242, 242, 242;
+
+    --card: 0 0% 15%; /* Dark Grey */
+    --card-foreground: 0 0% 95%;
+
+    --popover: 0 0% 10%;
+    --popover-foreground: 0 0% 95%;
+
+    --primary: 0 0% 25%; /* Medium Dark Grey */
+    --primary-foreground: 0 0% 95%;
+
+    --secondary: 0 0% 20%; /* Darker Grey */
+    --secondary-foreground: 0 0% 95%;
+
+    --muted: 0 0% 22%; /* Medium Dark Grey */
+    --muted-foreground: 0 0% 65%; /* Lighter Grey for Muted Text */
+
+    --accent: 0 0% 80%; /* Light Grey as Accent */
+    --accent-rgb: 204, 204, 204;
+    --accent-foreground: 0 0% 10%; /* Dark Grey for Accent Text */
+
+    --destructive: 0 62.8% 50.6%; /* Keeping a standard red for errors */
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 30%; /* Medium Grey Border */
+    --input: 0 0% 25%; /* Medium Dark Grey Input Background */
+    --ring: 0 0% 70%; /* Light Grey for Focus Ring */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1, "kern" 1;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  }
+  ::selection {
+    @apply bg-accent/30 text-accent-foreground;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold text-foreground; /* Ensure headings use foreground color */
+  }
+}
+
+/* Custom scrollbar for a more elegant look */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: hsl(var(--secondary) / 0.3);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted-foreground) / 0.4);
+  border-radius: 10px;
+  border: 1px solid transparent;
+  background-clip: content-box;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--muted-foreground) / 0.6);
+}
+
+/* Minimalist styling for inputs and buttons if needed beyond shadcn */
+/* Example: ensure consistent focus rings */
+input:focus-visible, button:focus-visible, [role="button"]:focus-visible, select:focus-visible, textarea:focus-visible {
+  outline: 2px solid hsl(var(--ring));
+  outline-offset: 2px;
+}
+
+
+/* Text shadow for hero sections */
+.shadow-text-sm {
+  text-shadow: 0px 1px 2px rgba(var(--foreground-rgb), 0.1);
+}
+.dark .shadow-text-sm {
+  text-shadow: 0px 1px 2px rgba(var(--background-rgb), 0.3);
+}
+.shadow-text-md {
+  text-shadow: 0px 2px 4px rgba(var(--foreground-rgb), 0.15);
+}
+.dark .shadow-text-md {
+  text-shadow: 0px 2px 4px rgba(var(--background-rgb), 0.4);
+}
+
+.shadow-text-lg {
+  text-shadow: 0px 3px 6px rgba(var(--foreground-rgb), 0.2);
+}
+.dark .shadow-text-lg {
+  text-shadow: 0px 3px 6px rgba(var(--background-rgb), 0.5);
+}
+
+
+/* Custom scrollbar for specific elements if needed */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: hsl(var(--accent) / 0.5);
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--accent) / 0.7);
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
